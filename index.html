@@ -95,8 +95,69 @@
           <div id="draftList" class="draft-list"></div>
         </aside>
       </section>
+
+      <section class="paper-section" aria-label="纸张领用">
+        <header class="paper-section-head">
+          <div>
+            <p class="eyebrow">裁纸间领纸</p>
+            <h2>纸张领用</h2>
+          </div>
+          <p class="paper-rules">
+            明信片每张原纸出2张、书签4张、方形小笺3张，换算向上取整。提交先预留库存，撤单归还；开工出库后边角回原批次，已开工不能换批次。
+          </p>
+        </header>
+
+        <div class="paper-grid">
+          <div class="panel paper-panel">
+            <div class="panel-head">
+              <h3>新开领料</h3>
+            </div>
+            <form id="requisitionForm" class="paper-form">
+              <label>
+                草稿
+                <select id="paperDraft" required></select>
+              </label>
+              <label>
+                原纸批次
+                <select id="paperBatch" required></select>
+              </label>
+              <label class="paper-pieces-field">
+                成品张数
+                <input id="paperPieces" type="number" min="1" step="1" value="10" required />
+              </label>
+              <p id="paperHint" class="paper-calc"></p>
+              <button type="submit" class="primary">提交预留</button>
+            </form>
+            <p id="paperMessage" class="paper-message" role="status"></p>
+          </div>
+
+          <div class="panel paper-panel">
+            <div class="panel-head">
+              <h3>领料记录</h3>
+              <span id="requisitionCount"></span>
+            </div>
+            <div id="requisitionList" class="paper-list"></div>
+          </div>
+
+          <div class="panel paper-panel">
+            <div class="panel-head">
+              <h3>原纸批次</h3>
+            </div>
+            <form id="batchForm" class="batch-form">
+              <input id="batchName" type="text" placeholder="批次名称，例：净皮四尺·丁批" required />
+              <input id="batchStock" type="number" min="0" step="1" value="20" placeholder="库存张数" required />
+              <button type="submit" class="primary">登记新批次</button>
+            </form>
+            <div class="divider"></div>
+            <div id="batchList" class="paper-list"></div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="app.js"></script>
+    <script src="paper-convert.js"></script>
+    <script src="paper-store.js"></script>
+    <script src="paper-ui.js"></script>
   </body>
 </html>
