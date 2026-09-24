@@ -95,8 +95,53 @@
           <div id="draftList" class="draft-list"></div>
         </aside>
       </section>
+
+      <section class="panel paper-room" aria-label="纸张领用">
+        <div class="panel-head">
+          <h2>纸张领用</h2>
+          <span id="paperSummary"></span>
+        </div>
+        <div class="paper-grid">
+          <div class="paper-col">
+            <h3>新开领料单</h3>
+            <form id="requisitionForm" class="paper-form">
+              <label>
+                草稿
+                <select id="reqDraft" required></select>
+              </label>
+              <label>
+                原纸批次
+                <select id="reqBatch" required></select>
+              </label>
+              <label>
+                成品张数
+                <input id="reqPieces" type="number" min="1" max="999" value="12" required />
+              </label>
+              <p id="reqPreview" class="paper-preview"></p>
+              <button class="primary" type="submit">提交领料（先预留）</button>
+              <p id="reqMessage" class="paper-message" role="status"></p>
+            </form>
+          </div>
+          <div class="paper-col">
+            <h3>原纸批次</h3>
+            <form id="batchForm" class="paper-form batch-form">
+              <input id="batchName" type="text" placeholder="批次名，例：红星宣纸·丙刀" required />
+              <input id="batchSheets" type="number" min="1" max="999" value="10" title="入库张数" required />
+              <button type="submit">入库</button>
+            </form>
+            <div id="batchList" class="batch-list"></div>
+          </div>
+          <div class="paper-col">
+            <h3>领料记录</h3>
+            <div id="requisitionList" class="req-list"></div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="app.js"></script>
+    <script src="paper-conversion.js"></script>
+    <script src="paper-store.js"></script>
+    <script src="paper-ui.js"></script>
   </body>
 </html>

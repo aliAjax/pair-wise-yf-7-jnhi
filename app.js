@@ -212,6 +212,7 @@ function renderAll() {
   renderStage();
   renderUsage();
   renderDrafts();
+  document.dispatchEvent(new CustomEvent("workshop:change"));
 }
 
 function placeType(row, col, typeId = state.selectedTypeId) {
@@ -395,5 +396,17 @@ els.draftList.addEventListener("click", (event) => {
     renderAll();
   }
 });
+
+// 供纸张领用模块（paper-ui.js）读取草稿列表
+window.WorkshopApp = {
+  getDrafts() {
+    return state.drafts.map((draft) => ({
+      id: draft.id,
+      title: draft.title,
+      paperSize: draft.settings.paperSize,
+      savedAt: draft.savedAt
+    }));
+  }
+};
 
 renderAll();

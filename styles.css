@@ -397,6 +397,152 @@ h3 {
   margin: 14px 0;
 }
 
+.paper-room {
+  margin-top: 16px;
+}
+
+.paper-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr 1.2fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.paper-col h3 {
+  margin-bottom: 10px;
+}
+
+.paper-form {
+  display: grid;
+  gap: 8px;
+}
+
+.paper-form label {
+  display: grid;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.paper-preview {
+  margin: 0;
+  min-height: 16px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.paper-message {
+  margin: 0;
+  min-height: 16px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.paper-message.error {
+  color: var(--red);
+}
+
+.paper-message.ok {
+  color: var(--green);
+}
+
+.batch-form {
+  grid-template-columns: 1fr 76px auto;
+  margin-bottom: 10px;
+}
+
+.batch-list,
+.req-list {
+  display: grid;
+  gap: 8px;
+  max-height: 340px;
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.batch-item,
+.req-item {
+  display: grid;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 9px;
+}
+
+.batch-item.disabled {
+  opacity: 0.62;
+}
+
+.batch-item header,
+.req-item header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.meta-line {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.status-badge {
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.status-active,
+.status-issued {
+  background: rgba(60, 112, 86, 0.14);
+  color: var(--green);
+}
+
+.status-reserved {
+  background: rgba(183, 134, 44, 0.16);
+  color: var(--gold);
+}
+
+.status-disabled,
+.status-cancelled {
+  background: rgba(111, 103, 92, 0.16);
+  color: var(--muted);
+}
+
+.req-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.req-actions button {
+  flex: 1;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.req-actions select {
+  flex: 2;
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
+@media (max-width: 1120px) {
+  .paper-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .batch-list,
+  .req-list {
+    max-height: none;
+  }
+}
+
 @media (max-width: 1120px) {
   .workspace {
     grid-template-columns: 1fr;
